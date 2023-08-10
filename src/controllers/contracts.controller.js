@@ -1,3 +1,6 @@
+// I could create a contracts folder and create one controller for each method but it's tool complex for a simple API.
+// I like to add complexity when the API become a larger with more complex methods.
+
 const { Op } = require("sequelize");
 
 /**

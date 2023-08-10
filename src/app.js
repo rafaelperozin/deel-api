@@ -8,6 +8,8 @@ app.use(bodyParser.json());
 app.set('sequelize', sequelize)
 app.set('models', sequelize.models)
 
+// IMPORTANTE: By security reasons, I would suggest to use hash ID instead of incremental numbers.
+
 const contracts = require('./routes/contracts.route');
 app.use('/contracts', contracts);
 
