@@ -13,9 +13,10 @@ app.set('models', sequelize.models)
  */
 app.get('/contracts/:id',getProfile ,async (req, res) =>{
     const {Contract} = req.app.get('models')
-    const {id} = req.params
-    const contract = await Contract.findOne({where: {id}})
-    if(!contract) return res.status(404).end()
+    const { id } = req.params
+    const profile_id = req.headers['profile_id']
+    const contract = await Contract.findOne({where: {id, ClientId: profile_id}})
+    if (!contract) return res.status(404).json({ message: 'The resource was not found.'}).end()
     res.json(contract)
 })
 module.exports = app;
