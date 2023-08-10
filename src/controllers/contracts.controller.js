@@ -33,7 +33,7 @@ const allContracts = async (req, res) => {
     }
   })
     
-  if (!contract) return res.status(404).json({ message: 'The resource was not found.' }).end()
+  if (contract.lenght === 0) return res.status(404).json({ message: 'The resource was not found.' }).end()
     
   res.json(contract)
 }
